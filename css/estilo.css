@@ -1,0 +1,9 @@
+#formulario {
+    width: 40%;
+}
+table, tbody{
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 70%;
+}
