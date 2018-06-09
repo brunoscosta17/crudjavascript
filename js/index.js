@@ -7,6 +7,7 @@ var contatos = [
 console.log(contatos);
 
 document.querySelector('#formulario').addEventListener("submit", function(event){
+    console.log(this);
     
     event.preventDefault();
 
@@ -22,8 +23,8 @@ document.querySelector('#formulario').addEventListener("submit", function(event)
 
     tabela.appendChild(tr);
 
-    for (var i=0; i <= contatos.length; i++){
-        this[i].value = '';
+    for (var i=0; i < contatos.length; i++){
+        contatos[i].value = '';
     }
 
     contatos[0].focus();
