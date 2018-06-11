@@ -33,7 +33,7 @@ document.querySelector('#formulario').addEventListener("submit", function(event)
 
 //BUSCA CONTATO
 var campoProcura = document.getElementById("campo-procura").addEventListener("input", function(event){
-    var contatos = document.querySelectorAll(".contato>tr");
+    var contatos = document.querySelectorAll(".contato>tr"); //acrescentando o seletor de hierarquia fez com que o código funcionasse
     //console.log(this);    
     
     if (this.value.length > 0) {
