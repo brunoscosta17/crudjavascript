@@ -7,3 +7,6 @@ table, tbody{
     border-collapse: collapse;
     width: 70%;
 }
+.invisivel {
+    display: none;
+}
