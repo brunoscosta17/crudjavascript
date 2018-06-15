@@ -17,25 +17,25 @@
 
     <section>
         <h2>Cadastro de Contatos</h2>
-        <form id="formulario">
+        <form id="formulario" onsubmit="adicionarContato(event)">
             <fieldset>
                 <label for="campo-nome">Nome:</label>
-                <input id="campo-nome" type="text" required placeholder="Digite o nome completo">
+                <input id="campo-nome" type="text" required placeholder="Nome">
             </fieldset>
             <fieldset>
                 <label for="campo-email">E-mail:</label>
-                <input id="campo-email" type="email" required placeholder="Digite o e-mail">
+                <input id="campo-email" type="email" required placeholder="E-mail">
             </fieldset>
             <fieldset>
                 <label for="campo-telefone">Telefone:</label>
-                <input id="campo-telefone" type="text" required placeholder="Digite o telefone">
+                <input id="campo-telefone" type="text" required placeholder="Telefone">
             </fieldset>
             <fieldset>
                 <label for="campo-nasc">Data de Nascimento:</label>
-                <input id="campo-nasc" type="date" required placeholder="Digite a data de nascimento">
+                <input id="campo-nasc" type="date" required placeholder="Data de nascimento">
             </fieldset>
             <br>
-            <button type="submit" id="add-contato" class="botao bto-adiciona">Adicionar</button>
+            <button type="submit" id="add-contato" class="botao bto-adiciona" >Adicionar</button>
         </form>
     </section>
 
@@ -46,7 +46,7 @@
         <input id="campo-procura" type="text" placeholder="Digite a palavra">
         <br><br>
 
-        <table>
+        <table class="tb-contato">
             <tr>
                 <th>Nome</th>
                 <th>E-mail</th>
@@ -73,7 +73,7 @@
         </table>
     </section>
     <script src="js/index.js"></script>
-    <!-- <script src="inserir.js"></script> -->
+    <script src="js/inserir.js"></script>
     <!-- <script src="js/procurar.js"></script> -->
     <script src="js/remover.js"></script>
 </main>

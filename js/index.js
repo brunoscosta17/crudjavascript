@@ -1,35 +1,28 @@
-var contatos = [
-    document.querySelector("#campo-nome"),
-    document.querySelector("#campo-email"),
-    document.querySelector("#campo-telefone"),
-    document.querySelector("#campo-nasc")
-];
 
 //INSERE CONTATO
-document.querySelector('#formulario').addEventListener("submit", function(event){
-    //console.log(this);
+// document.querySelector('#formulario').addEventListener("submit", function(event){
     
-    event.preventDefault();
+//     event.preventDefault();
 
-    var tr = document.createElement('tr');
+//     var tr = document.createElement('tr');
 
-    contatos.forEach(function(posicao){
-        td = document.createElement('td');
-        td.textContent = posicao.value;
-        tr.appendChild(td);
-    });
+//     contatos.forEach(function(posicao){
+//         td = document.createElement('td');
+//         td.textContent = posicao.value;
+//         tr.appendChild(td);
+//     });
 
-    var tabela = document.querySelector("table tbody");
+//     var tabela = document.querySelector("table tbody");
 
-    tabela.appendChild(tr);
+//     tabela.appendChild(tr);
 
-    for (var i=0; i < contatos.length; i++){
-        contatos[i].value = '';
-    }
+//     for (var i=0; i < contatos.length; i++){
+//         contatos[i].value = '';
+//     }
 
-    contatos[0].focus();
-    //console.log(this);
-});
+//     contatos[0].focus();
+//     //console.log(this);
+// });
 
 //BUSCA CONTATO
 var campoProcura = document.getElementById("campo-procura").addEventListener("input", function(event){

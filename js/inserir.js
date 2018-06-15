@@ -1,13 +1,21 @@
-//INSERE CONTATO
-document.querySelector('#formulario').addEventListener("submit", function(event){
-    
+function adicionarContato(event) {
+
     event.preventDefault();
 
+    var contatos = [
+        document.querySelector("#campo-nome"),
+        document.querySelector("#campo-email"),
+        document.querySelector("#campo-telefone"),
+        document.querySelector("#campo-nasc")
+    ];
+        
     var tr = document.createElement('tr');
-
-    contatos.forEach(function(posicao){
+    var td;
+        
+    contatos.forEach(function(elemento){
+        
         td = document.createElement('td');
-        td.textContent = posicao.value;
+        td.textContent = elemento.value;
         tr.appendChild(td);
     });
 
@@ -19,6 +27,5 @@ document.querySelector('#formulario').addEventListener("submit", function(event)
         contatos[i].value = '';
     }
 
-    contatos[0].focus();
-    console.log(this);
-});
+    contatos[0].focus(); 
+}
