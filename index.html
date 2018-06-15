@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">    
-    <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="css/estilo.css">
+    
     <title>Agenda de Contatos</title>
 </head>
 <body>
@@ -60,14 +60,14 @@
                     <td class="info-email">brunoscosta17@gmail.com</td>
                     <td class="info-telefone">34 9929 1047</td>
                     <td class="info-nasc">29/07/1988</td>
-                    <td id="remover"><input type="image" src="img/remove.gif"></td>
+                    <td class="btn-remover" onclick="remove.call(this, event)"><input type="image" src="img/remove.gif"></td>
                 </tr>
                 <tr class="contato-inserido">
                     <td class="info-nome">Mary</td>
                     <td class="info-email">mary@gmail.com</td>
                     <td class="info-telefone">34 9929 1047</td>
                     <td class="info-nasc">19/12/2013</td>
-                    <td id="remover"><input type="image" src="img/remove.gif"></td>
+                    <td class="btn_remover" onclick="remove.call(this, event)"><input type="image" src="img/remove.gif"></td>
                 </tr>
             </tbody>
         </table>

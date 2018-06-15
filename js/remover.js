@@ -1,10 +1,6 @@
-var contatos = document.querySelectorAll(".contato>.contato-inserido");
+var contatos = document.querySelectorAll(".contato-inserido");
 
-contatos.forEach(function(contatos){
-    console.log(contatos);
-    
-    document.getElementById("remover").addEventListener("click", function(){
-
-        contatos.remove();
-    })
-})
+function remove(event) 
+{
+    this.parentElement.remove();
+};
