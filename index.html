@@ -17,7 +17,7 @@
 
     <section>
         <h2>Cadastro de Contatos</h2>
-        <form id="formulario" onsubmit="adicionarContato(event)">
+        <form id="formulario" onsubmit="salvarContato(event)">
             <fieldset>
                 <label for="campo-nome">Nome:</label>
                 <input id="campo-nome" type="text" required placeholder="Nome">
@@ -35,7 +35,7 @@
                 <input id="campo-nasc" type="date" required placeholder="Data de nascimento">
             </fieldset>
             <br>
-            <button type="submit" id="add-contato" class="botao bto-adiciona" >Adicionar</button>
+            <button type="submit" id="salvar-contato" class="botao bto-salvar" >Salvar</button>
         </form>
     </section>
 
@@ -54,28 +54,14 @@
                 <th>Data de Nascimento</th>
                 <th>Excluir</th>
             </tr>
-            <tbody class="contato">
-                <tr class="contato-inserido">
-                    <td class="info-nome">Bruno</td>
-                    <td class="info-email">brunoscosta17@gmail.com</td>
-                    <td class="info-telefone">34 9929 1047</td>
-                    <td class="info-nasc">29/07/1988</td>
-                    <td class="btn-remover" onclick="remove.call(this, event)"><input type="image" src="img/remove.gif"></td>
-                </tr>
-                <tr class="contato-inserido">
-                    <td class="info-nome">Mary</td>
-                    <td class="info-email">mary@gmail.com</td>
-                    <td class="info-telefone">34 9929 1047</td>
-                    <td class="info-nasc">19/12/2013</td>
-                    <td class="btn_remover" onclick="remove.call(this, event)"><input type="image" src="img/remove.gif"></td>
-                </tr>
-            </tbody>
+            
         </table>
     </section>
-    <script src="js/index.js"></script>
+    
     <script src="js/inserir.js"></script>
-    <!-- <script src="js/procurar.js"></script> -->
+    <script src="js/procurar.js"></script>
     <script src="js/remover.js"></script>
+    <script src="js/atualizar.js"></script>
 </main>
 </body>
 </html>

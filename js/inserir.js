@@ -1,4 +1,4 @@
-function adicionarContato(event) {
+function salvarContato(event) {
 
     event.preventDefault();
 
@@ -11,13 +11,26 @@ function adicionarContato(event) {
         
     var tr = document.createElement('tr');
     var td;
+    var input;
         
     contatos.forEach(function(elemento){
         
         td = document.createElement('td');
         td.textContent = elemento.value;
+
         tr.appendChild(td);
     });
+
+    input = document.createElement("input");
+    input.type = "image";
+    input.src = "img/remove.gif";
+    input.className = "btn-remover";
+    input.onclick = remove;
+
+    td = document.createElement('td');
+    td.appendChild(input);
+
+    tr.appendChild(td);
 
     var tabela = document.querySelector("table tbody");
 

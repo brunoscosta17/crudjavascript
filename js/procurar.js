@@ -7,13 +7,12 @@ var campoProcura = document.getElementById("campo-procura").addEventListener("in
             var tdNome = contato.querySelector(".info-nome");
             var nome = tdNome.textContent;
 
-            var expressao = new RegExp(this.value, "i");
+            var expressao = new RegExp("^"+this.value, "i");
             if (expressao.test(nome)){
                 contato.classList.remove("invisivel");
             } else {
                 contato.classList.add("invisivel");
             }            
-            //console.log(nome);
         }
     }  else {
         for (var i = 0; i < contatos.length; i++){
