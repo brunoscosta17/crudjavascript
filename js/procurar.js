@@ -4,6 +4,7 @@ var campoProcura = document.getElementById("campo-procura").addEventListener("in
     if (this.value.length > 0) {
         for (var i = 0; i < contatos.length; i++) {
             var contato = contatos[i];
+
             var tdNome = contato.querySelector(".info-nome");
             var nome = tdNome.textContent;
 
@@ -14,7 +15,9 @@ var campoProcura = document.getElementById("campo-procura").addEventListener("in
                 contato.classList.add("invisivel");
             }
         }
-    }  else {
+
+    }  
+    else {
         for (var i = 0; i < contatos.length; i++){
             var contato = contatos[i];
             contato.classList.remove("invisivel");

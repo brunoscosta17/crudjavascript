@@ -9,16 +9,17 @@ function salvarContato(event) {
         document.querySelector("#campo-nasc")
     ];
 
+        
     var tr = document.createElement('tr');
-
-    contatos.forEach(function(elemento){
-
+    var td;
+    var input;
+        
+    contatos.forEach(function(elemento) {
         td = document.createElement('td');
         td.textContent = elemento.value;
 
         tr.appendChild(td);
     });
-
     var tdRemover;
     var tdEditar;
     var inputRemover;
