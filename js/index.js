@@ -1,3 +1,8 @@
+function edita()
+{
+
+}
+
 function salvarContato(event) {
 
     event.preventDefault();
@@ -14,9 +19,14 @@ function salvarContato(event) {
     var td;
     var input;
         
-    contatos.forEach(function(elemento) {
+    contatos.forEach(function(elemento, index) {
         td = document.createElement('td');
         td.textContent = elemento.value;
+
+        if (index == 0) 
+        {
+            td.className = "info-nome";
+        }
 
         tr.appendChild(td);
     });
@@ -58,3 +68,36 @@ function salvarContato(event) {
 
     contatos[0].focus();
 }
+
+document.getElementById("campo-procura").addEventListener("input", function(event){
+    debugger;
+    var contatos = document.querySelectorAll(".contato>tr");
+
+    if (this.value.length > 0) {
+        for (var i = 0; i < contatos.length; i++) {
+            var contato = contatos[i];
+
+            var tdNome = contato.querySelector(".info-nome");
+            var nome = tdNome.textContent;
+
+            var expressao = new RegExp("^"+this.value, "i");
+            if (expressao.test(nome)){
+                contato.classList.remove("invisivel");
+            } else {
+                contato.classList.add("invisivel");
+            }
+        }
+
+    }  
+    else {
+        for (var i = 0; i < contatos.length; i++){
+            var contato = contatos[i];
+            contato.classList.remove("invisivel");
+        }
+    }
+});
+
+function remove(event) 
+{
+    this.parentElement.parentElement.remove();
+};
