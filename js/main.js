@@ -2,13 +2,28 @@ crudjs = {
     contacts: {
         
         // Clear the create contact form fields
-        fnClearForm: function() 
+        fnClearForm: function(contactFormFields) 
         {
-            for (var i = 0; i < contatos.length; i++) {
-                contatos[i].value = '';
+            for (var i = 0; i < contactFormFields.length; i++) {
+                contactFormFields[i].value = '';
             }
 
-            contatos[0].focus();
+            contactFormFields[0].focus();
+        },
+
+        fnGetContacts : function() {
+            var contacts = localStorage.getItem("contacts");
+            if (contacts === null) 
+            {
+                return [];
+            }
+            else {
+                return JSON.parse(contacts);                
+            }
+        },
+
+        fnGetNextId : function() {
+
         },
 
         // Creates a new contact using the information from the form
@@ -16,33 +31,39 @@ crudjs = {
         {
             event.preventDefault();
 
-            var contacts = [
+            let contactFormFields = [
                 document.querySelector("#campo-nome"),
                 document.querySelector("#campo-email"),
                 document.querySelector("#campo-telefone"),
-                document.querySelector("#campo-nasc")   
+                document.querySelector("#campo-nasc")  
             ];
 
-            let contact = new {
-                Name : contacts[0],
-                Email : contacts[1],
-                Telefone : contacts[2],
-                DAO : contacts[3]             
+            let contact = {
+                Id : null,
+                Name : contactFormFields[0].value,
+                Email : contactFormFields[1].value,
+                Telefone : contactFormFields[2].value,
+                DAO : contactFormFields[3].value             
             };  
 
-            // save in storage system
-            this.fnSaveInStorage(contact);
+            // save in a persistance layer
+            contact = this.fnSaveInStorage(contact);
 
             // show in screen
             this.fnRender(contact);
             
             // clear form fields
-            this.fnClearForm(contact);
+            this.fnClearForm(contactFormFields);
         },
 
         // Saves the contact in a persistance layer
         fnSaveInStorage: function(contact) {
+            let contacts = this.fnGetContacts();
+            if (contacts.length === 0) return 1;
+            let newId = contacts[contacts.length - 1].Id + 1; 
+            contact.Id = newId;
 
+            return contact;
         },
 
         // Create another table row, containing the new contact

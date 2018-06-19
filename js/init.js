@@ -61,7 +61,7 @@ var contacts = [{
     "DOB": "04/28/2018"
 }];
 
-if (localStorage.getItem("contacts") != null ) 
+if (localStorage.getItem("contacts") === null) 
 {    
     localStorage.setItem("contacts", JSON.stringify(contacts));
 }
