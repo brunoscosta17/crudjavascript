@@ -1,30 +1,68 @@
 crudjs = {
-    contatos: {
-        fnSave: function (event) {
+    contacts: {
+        
+        // Clear the create contact form fields
+        fnClearForm: function() 
+        {
+            for (var i = 0; i < contatos.length; i++) {
+                contatos[i].value = '';
+            }
 
+            contatos[0].focus();
+        },
+
+        // Creates a new contact using the information from the form
+        fnCreateNew: function(event) 
+        {
             event.preventDefault();
 
-            var contatos = [
+            var contacts = [
                 document.querySelector("#campo-nome"),
                 document.querySelector("#campo-email"),
                 document.querySelector("#campo-telefone"),
-                document.querySelector("#campo-nasc")
+                document.querySelector("#campo-nasc")   
             ];
+
+            let contact = new {
+                Name : contacts[0],
+                Email : contacts[1],
+                Telefone : contacts[2],
+                DAO : contacts[3]             
+            };  
+
+            // save in storage system
+            this.fnSaveInStorage(contact);
+
+            // show in screen
+            this.fnRender(contact);
+            
+            // clear form fields
+            this.fnClearForm(contact);
+        },
+
+        // Saves the contact in a persistance layer
+        fnSaveInStorage: function(contact) {
+
+        },
+
+        // Create another table row, containing the new contact
+        fnRender: function (contact) {           
 
             var tr = document.createElement('tr');
             var td;
             var input;
 
-            contatos.forEach(function (elemento, index) {
+            for (let property in contact) {
                 td = document.createElement('td');
-                td.textContent = elemento.value;
+                td.textContent = contact[property];
 
-                if (index == 0) {
+                if (property === "Name") {
                     td.className = "info-nome";
                 }
 
                 tr.appendChild(td);
-            });
+            }
+
             var tdRemover;
             var tdEditar;
             var inputRemover;
@@ -34,7 +72,7 @@ crudjs = {
             inputRemover.type = "image";
             inputRemover.src = "img/remove.gif";
             inputRemover.className = "btn-remover";
-            inputRemover.onclick = crudjs.contatos.fnRemove;
+            inputRemover.onclick = crudjs.contacts.fnRemove;
 
             tdRemover = document.createElement('td');
             tdRemover.appendChild(inputRemover);
@@ -54,13 +92,7 @@ crudjs = {
 
             var tabela = document.querySelector("table tbody");
 
-            tabela.appendChild(tr);
-
-            for (var i = 0; i < contatos.length; i++) {
-                contatos[i].value = '';
-            }
-
-            contatos[0].focus();
+            tabela.appendChild(tr);            
         },
         
         fnRemove: function (event) 
@@ -68,6 +100,7 @@ crudjs = {
             this.parentElement.parentElement.remove();
         },
 
+        // Searches for a contact by first name
         fnSearch: function (event) {
             var contatos = document.querySelectorAll(".contato>tr");
         
