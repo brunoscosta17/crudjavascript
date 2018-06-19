@@ -23,7 +23,9 @@ crudjs = {
         },
 
         fnGetNextId : function() {
-
+            let contacts = this.fnGetContacts();
+            if (contacts.length === 0) return 1;
+            return contacts[contacts.length - 1].Id + 1; 
         },
 
         // Creates a new contact using the information from the form
@@ -57,12 +59,9 @@ crudjs = {
         },
 
         // Saves the contact in a persistance layer
-        fnSaveInStorage: function(contact) {
-            let contacts = this.fnGetContacts();
-            if (contacts.length === 0) return 1;
-            let newId = contacts[contacts.length - 1].Id + 1; 
+        fnSaveInStorage: function(contact) {            
+            let newId = this.fnGetNextId(); 
             contact.Id = newId;
-
             return contact;
         },
 
